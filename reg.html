@@ -14,81 +14,114 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* 1. Core Styling & Typography */
-        body { font-family: 'Montserrat', sans-serif; background-color: #0d0b1a; color: #e2e8f0; overflow-x: hidden; }
-        .font-heading { font-family: 'Raleway', sans-serif; }
-        .gradient-bg { background: linear-gradient(270deg, #0d0b1a, #1a0b2e, #3a1d6e, #1a0b2e, #0d0b1a); background-size: 600% 600%; animation: gradientAnimation 45s ease infinite; }
-        @keyframes gradientAnimation { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    /* 1. Core Styling & Typography */
+    body { font-family: 'Montserrat', sans-serif; background-color: #0d0b1a; color: #e2e8f0; overflow-x: hidden; }
+    .font-heading { font-family: 'Raleway', sans-serif; }
+    .gradient-bg { background: linear-gradient(270deg, #0d0b1a, #1a0b2e, #3a1d6e, #1a0b2e, #0d0b1a); background-size: 600% 600%; animation: gradientAnimation 45s ease infinite; }
+    @keyframes gradientAnimation { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-        /* 2. Glassmorphism Styling */
-        .glass-effect { background: rgba(30, 27, 75, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(139, 92, 246, 0.1); transition: all 0.3s ease; }
-        
-        /* 3. Navbar Styling */
-        #navbar { background: transparent; transition: padding 0.3s ease-in-out; }
-        #navbar .glass-effect { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: transparent; transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, border-color 0.3s ease-in-out; }
-        #navbar.scrolled { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        #navbar.scrolled .glass-effect { background: rgba(13, 11, 26, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(139, 92, 246, 0.1); }
-        #navbar-text { transition: opacity 0.3s ease-in-out; }
-        #navbar.scrolled #navbar-text { opacity: 0; }
-        
-        /* 4. Aurora Button Style */
-        .aurora-button { position: relative; border: 1px solid #ffffff; color: #ffffff; background-color: transparent; overflow: hidden; transition: all 0.3s ease; font-size: 0.875rem; padding: 0.6rem 1.25rem; }
-        .aurora-button .aurora-effect { position: absolute; bottom: 0; left: 0; width: 100%; height: 0; background: linear-gradient(to top, #4c1d95, transparent); opacity: 0.3; transition: all 0.4s ease; }
-        .aurora-button:hover .aurora-effect { height: 100%; }
-        .aurora-button:hover { border-color: #a78bfa; box-shadow: 0 0 10px rgba(167, 139, 250, 0.15); }
+    /* 2. Glassmorphism Styling */
+    .glass-effect { background: rgba(30, 27, 75, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(139, 92, 246, 0.1); transition: all 0.3s ease; }
+    
+    /* 3. Navbar Styling */
+    #navbar { background: transparent; transition: padding 0.3s ease-in-out; }
+    #navbar .glass-effect { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-color: transparent; transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, border-color 0.3s ease-in-out; }
+    #navbar.scrolled { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    #navbar.scrolled .glass-effect { background: rgba(13, 11, 26, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(139, 92, 246, 0.1); }
+    #navbar-text { transition: opacity 0.3s ease-in-out; }
+    #navbar.scrolled #navbar-text { opacity: 0; }
+    
+    /* 4. Aurora Button Style */
+    .aurora-button { position: relative; border: 1px solid #ffffff; color: #ffffff; background-color: transparent; overflow: hidden; transition: all 0.3s ease; font-size: 0.875rem; padding: 0.6rem 1.25rem; }
+    .aurora-button .aurora-effect { position: absolute; bottom: 0; left: 0; width: 100%; height: 0; background: linear-gradient(to top, #4c1d95, transparent); opacity: 0.3; transition: all 0.4s ease; }
+    .aurora-button:hover .aurora-effect { height: 100%; }
+    .aurora-button:hover { border-color: #a78bfa; box-shadow: 0 0 10px rgba(167, 139, 250, 0.15); }
 
-        /* 5. Particles & Background Elements */
-        #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; }
-        .section-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
-        .college-bg-image { background-image: url('https://brilliantpala.org/wp-content/uploads/2025/02/College-of-Engineering-Perumon-Kollam.jpg'); background-size: cover; background-position: center; opacity: 0.05; mix-blend-mode: screen; }
-        .bubble { position: absolute; bottom: -150px; border-radius: 50%; background: radial-gradient(circle, #4c1d95, #1e1b4b); opacity: 0.15; animation: rise 40s infinite; }
-        .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 25s; }
-        .bubble:nth-child(2) { width: 40px; height: 40px; left: 20%; animation-duration: 35s; animation-delay: 2s; }
-        .bubble:nth-child(3) { width: 100px; height: 100px; left: 35%; animation-duration: 28s; animation-delay: 4s; }
-        @keyframes rise { 0% { transform: translateY(0); } 100% { transform: translateY(-120vh); } }
-        
-        /* 6. Typewriter Effect */
-        .typewriter-text { overflow: hidden; border-right: .15em solid #a78bfa; white-space: nowrap; letter-spacing: .1em; animation: typing 3.5s steps(30, end) infinite, blink-caret .75s step-end infinite; }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #a78bfa; } }
-        
-        /* 7. Mobile Menu */
-        #mobile-menu { transition: transform 0.3s ease-in-out; background: rgba(13, 11, 26, 0.9); backdrop-filter: blur(10px); }
-        #mobile-menu.hidden { transform: translateX(100%); }
-        
-        /* 8. Team Section Spotlight Effect */
-        #team-grid:hover .team-card { opacity: 0.5; transform: scale(0.95); }
-        #team-grid .team-card:hover { opacity: 1; transform: scale(1.05); }
+    /* 5. Particles & Background Elements */
+    #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; }
+    .section-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+    .college-bg-image { background-image: url('https://brilliantpala.org/wp-content/uploads/2025/02/College-of-Engineering-Perumon-Kollam.jpg'); background-size: cover; background-position: center; opacity: 0.05; mix-blend-mode: screen; }
+    .bubble { position: absolute; bottom: -150px; border-radius: 50%; background: radial-gradient(circle, #4c1d95, #1e1b4b); opacity: 0.15; animation: rise 40s infinite; }
+    .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 25s; }
+    .bubble:nth-child(2) { width: 40px; height: 40px; left: 20%; animation-duration: 35s; animation-delay: 2s; }
+    .bubble:nth-child(3) { width: 100px; height: 100px; left: 35%; animation-duration: 28s; animation-delay: 4s; }
+    @keyframes rise { 0% { transform: translateY(0); } 100% { transform: translateY(-120vh); } }
+    
+    /* 6. Typewriter Effect */
+    .typewriter-text { overflow: hidden; border-right: .15em solid #a78bfa; white-space: nowrap; letter-spacing: .1em; animation: typing 3.5s steps(30, end) infinite, blink-caret .75s step-end infinite; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #a78bfa; } }
+    
+    /* 7. Mobile Menu */
+    #mobile-menu { transition: transform 0.3s ease-in-out; background: rgba(13, 11, 26, 0.9); backdrop-filter: blur(10px); }
+    #mobile-menu.hidden { transform: translateX(100%); }
+    
+    /* 8. Team Section Spotlight Effect -- FULLY REVISED */
+    .team-card {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5); /* Black shadow for the card */
+        transition: all 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        /* 9. Aurora Text Effect */
-        .aurora-text { position: relative; background: linear-gradient(90deg, #fff, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
-        .aurora-text::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, #a78bfa, #4c1d95); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; opacity: 0; animation: aurora-shimmer 5s infinite linear; }
-        @keyframes aurora-shimmer { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    /* NEW: Image container with fixed height */
+    .image-container {
+        height: 280px; /* This enforces equal height for the image area */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 
-        /* 10. DUAL-MODE CAROUSEL STYLES */
-        /* Utility to hide scrollbar for mobile view */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Desktop 3D Carousel Card States */
-        .event-card { transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease; }
-        .event-card.active { transform: translateX(0) translateZ(0) rotateY(0); opacity: 1; filter: blur(0px); z-index: 10; }
-        .event-card.left { transform: translateX(-60%) translateZ(-200px) rotateY(30deg); opacity: 0.4; filter: blur(4px); z-index: 1; }
-        .event-card.right { transform: translateX(60%) translateZ(-200px) rotateY(-30deg); opacity: 0.4; filter: blur(4px); z-index: 1; }
-        
-        /* Desktop Navigation Buttons */
-        .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
-        .carousel-nav:hover { background: rgba(255,255,255,0.2); }
-        #prev-btn { left: 5%; }
-        #next-btn { right: 5%; }
+    /* MODIFIED: Styles for the image itself */
+    .image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Scales image down to fit, maintains aspect ratio */
+        /* Applying shadow directly to the image (works best for transparent PNGs) */
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+        transition: filter 0.3s ease;
+    }
 
-        /* 11. Loading Dots CSS Animation */
-        .loading-dots { display: flex; justify-content: center; align-items: center; height: 120px; }
-        .loading-dots .dot { width: 12px; height: 12px; margin: 0 5px; background-color: #a78bfa; border-radius: 50%; animation: dot-pulse 1.4s infinite ease-in-out both; }
-        .loading-dots .dot:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dots .dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes dot-pulse { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1.0); opacity: 1; } }
-    </style>
+    #team-grid:hover .team-card {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    #team-grid .team-card:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0 0 25px 5px rgba(167, 139, 250, 0.6); /* Purple highlight on the CARD */
+    }
+
+    /* NEW: Image glow on hover */
+    #team-grid .team-card:hover .image-container img {
+        /* Purple glow using drop-shadow for better effect on irregular shapes */
+        filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.7));
+    }
+
+    /* 9. Aurora Text Effect */
+    .aurora-text { position: relative; background: linear-gradient(90deg, #fff, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
+    .aurora-text::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, #a78bfa, #4c1d95); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; opacity: 0; animation: aurora-shimmer 5s infinite linear; }
+    @keyframes aurora-shimmer { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+    /* 10. DUAL-MODE CAROUSEL STYLES */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .event-card { transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease; }
+    .event-card.active { transform: translateX(0) translateZ(0) rotateY(0); opacity: 1; filter: blur(0px); z-index: 10; }
+    .event-card.left { transform: translateX(-60%) translateZ(-200px) rotateY(30deg); opacity: 0.4; filter: blur(4px); z-index: 1; }
+    .event-card.right { transform: translateX(60%) translateZ(-200px) rotateY(-30deg); opacity: 0.4; filter: blur(4px); z-index: 1; }
+    .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
+    .carousel-nav:hover { background: rgba(255,255,255,0.2); }
+    #prev-btn { left: 5%; }
+    #next-btn { right: 5%; }
+
+    /* 11. Loading Dots CSS Animation */
+    .loading-dots { display: flex; justify-content: center; align-items: center; height: 120px; }
+    .loading-dots .dot { width: 12px; height: 12px; margin: 0 5px; background-color: #a78bfa; border-radius: 50%; animation: dot-pulse 1.4s infinite ease-in-out both; }
+    .loading-dots .dot:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots .dot:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes dot-pulse { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1.0); opacity: 1; } }
+</style>
 </head>
 <body class="antialiased font-body gradient-bg">
     
@@ -120,21 +153,38 @@
             </div>
         </section>
 
-        <section id="team" class="py-24 px-4 relative">
-            <div class="section-background college-bg-image"></div>
-            <div class="section-background bubbles-container"> <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div> </div>
-            <div class="container mx-auto relative z-10">
-                <h2 class="font-heading text-4xl font-bold text-center mb-12 text-white aurora-text" data-aos="fade-up">The Leads</h2>
-                <div class="flex justify-center">
-                    <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300" data-aos="fade-up" data-aos-delay="100"> <img src="https://placehold.co/400x520/1e1b4b/a78bfa?text=Photo" alt="Faculty Advisor" class="w-full h-auto object-cover rounded-t-2xl"> <div class="p-6"><h3 class="font-heading text-xl font-semibold text-white">Faculty Advisor</h3><p class="text-slate-400 font-light">(Name Placeholder)</p></div> </div>
-                        <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300" data-aos="fade-up" data-aos-delay="200"> <img src="https://placehold.co/400x520/1e1b4b/a78bfa?text=Photo" alt="Team Leader" class="w-full h-auto object-cover rounded-t-2xl"> <div class="p-6"><h3 class="font-heading text-xl font-semibold text-white">Team Leader</h3><p class="text-slate-400 font-light">(Name Placeholder)</p></div> </div>
-                        <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300" data-aos="fade-up" data-aos-delay="300"> <img src="https://placehold.co/400x520/1e1b4b/a78bfa?text=Photo" alt="Co-Leader" class="w-full h-auto object-cover rounded-t-2xl"> <div class="p-6"><h3 class="font-heading text-xl font-semibold text-white">Team Co-Leader</h3><p class="text-slate-400 font-light">(Name Placeholder)</p></div> </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section id="team" class="py-24 relative">
+    <div class="section-background college-bg-image"></div>
+    <div class="section-background bubbles-container"> <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div> </div>
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+        <h2 class="font-heading text-4xl font-bold text-center mb-12 text-white aurora-text" data-aos="fade-up">The Leads</h2>
         
+        <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-container p-4" style="height: 300px;">
+                     <img src="pic2-removebg-preview.png" alt="Faculty Advisor">
+                </div>
+                <div class="p-6 pt-0"><h3 class="font-heading text-xl font-semibold text-white">Faculty Advisor</h3><p class="text-slate-400 font-light">Beenu Mary Panicker</p></div>
+            </div>
+
+            <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                <div class="image-container p-4" style="height: 300px;">
+                    <img src="pic1.png" alt="Team Leader">
+                </div>
+                <div class="p-6 pt-0"><h3 class="font-heading text-xl font-semibold text-white">Team Leader</h3><p class="text-slate-400 font-light">Adil  Hassan</p></div>
+            </div>
+
+            <div class="team-card glass-effect rounded-2xl text-center transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                 <div class="image-container p-4" style="height: 300px;">
+                    <img src="p3-removebg-preview.png" alt="Co-Leader">
+                </div>
+                <div class="p-6 pt-0"><h3 class="font-heading text-xl font-semibold text-white">Team Co-Leader</h3><p class="text-slate-400 font-light">Alphy Aby</p></div>
+            </div>
+
+        </div>
+    </div>
+</section>
         <section id="events" class="py-24 px-4">
             <div class="container mx-auto">
                 <h2 class="font-heading text-4xl font-bold text-center mb-12 text-white aurora-text" data-aos="fade-up">Upcoming Events</h2>
@@ -142,18 +192,19 @@
                 <div class="relative" data-aos="fade-up">
                     <div id="event-carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth py-4 no-scrollbar space-x-6 md:space-x-0 md:relative md:flex md:justify-center md:items-center md:overflow-visible md:h-[500px] md:perspective-[1000px]">
                         
-                        <div id="event-1" class="event-card flex-shrink-0 w-5/6 sm:w-2/3 md:w-[70%] md:max-w-[500px] min-h-[480px] md:h-[520px] snap-center md:absolute glass-effect rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-                            <div class="absolute top-4 right-4 bg-slate-900/50 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">EVENT 02</div> <div class="loading-dots my-4"> <span class="dot"></span><span class="dot"></span><span class="dot"></span> </div> <h3 class="font-heading text-2xl font-bold text-white mt-4">Event To Be Announced</h3>
-                        </div>
-                        
-                        <div id="event-2" class="event-card flex-shrink-0 w-5/6 sm:w-2/3 md:w-[70%] md:max-w-[500px] min-h-[480px] md:h-[520px] snap-center md:absolute glass-effect rounded-2xl p-6 flex flex-col">
+                         <div id="event-1" class="event-card flex-shrink-0 w-5/6 sm:w-2/3 md:w-[70%] md:max-w-[500px] min-h-[480px] md:h-[520px] snap-center md:absolute glass-effect rounded-2xl p-6 flex flex-col">
                             <div class="absolute top-4 right-4 bg-slate-900/50 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">EVENT 01</div> <img src="https://placehold.co/600x400/0d0b1a/a78bfa?text=EUREKA" alt="Eureka Poster" class="rounded-lg mb-6"> <h3 class="font-heading text-2xl font-bold mb-4 text-[#a78bfa]">Eureka</h3> <p class="mb-6 flex-grow text-slate-300 font-light text-sm">The flagship pitching competition. 20 teams, 3 minutes per pitch. A perfect blend of creativity, innovation, and execution!</p> 
                             <a href="#register" class="aurora-button text-center rounded-full font-semibold mt-auto">
                                 <span class="aurora-effect"></span>
                                 <span class="relative z-10">Register</span>
                             </a>
                         </div>
+    
+                        <div id="event-2" class="event-card flex-shrink-0 w-5/6 sm:w-2/3 md:w-[70%] md:max-w-[500px] min-h-[480px] md:h-[520px] snap-center md:absolute glass-effect rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                            <div class="absolute top-4 right-4 bg-slate-900/50 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">EVENT 02</div> <div class="loading-dots my-4"> <span class="dot"></span><span class="dot"></span><span class="dot"></span> </div> <h3 class="font-heading text-2xl font-bold text-white mt-4">Event To Be Announced</h3>
+                        </div>
 
+                        
                         <div id="event-3" class="event-card flex-shrink-0 w-5/6 sm:w-2/3 md:w-[70%] md:max-w-[500px] min-h-[480px] md:h-[520px] snap-center md:absolute glass-effect rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                             <div class="absolute top-4 right-4 bg-slate-900/50 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">EVENT 03</div> <h3 class="font-heading text-2xl font-bold mb-4 text-white">Next Big Thing</h3> <p class="font-heading text-2xl font-semibold text-[#a78bfa] typewriter-text">Coming Soon...</p>
                         </div>
@@ -169,7 +220,7 @@
             <div class="container mx-auto" data-aos="zoom-in">
                 <h2 class="font-heading text-4xl font-bold mb-4 text-white aurora-text">Ready to pitch your big idea?</h2>
                 <p class="text-lg text-slate-300 mb-8 font-light">Click below to register for Eureka!</p>
-                <a href="#" target="_blank" class="aurora-button inline-block rounded-full font-semibold text-lg py-3 px-8">
+                <a href=" https://forms.gle/7BM67NMnjiv5Fyvm8" target="_blank" class="aurora-button inline-block rounded-full font-semibold text-lg py-3 px-8">
                     <span class="aurora-effect"></span>
                     <span class="relative z-10">Register Now</span>
                 </a>
@@ -205,7 +256,8 @@
                 const cards = Array.from(container.querySelectorAll('.event-card'));
                 const nextBtn = document.getElementById('next-btn');
                 const prevBtn = document.getElementById('prev-btn');
-                let activeIndex = 1; // Start with Eureka as active
+                // STARTING INDEX IS NOW 0 FOR EUREKA
+                let activeIndex = 0; 
 
                 // --- 3D Carousel Logic (for desktop) ---
                 const update3DCarousel = () => {
